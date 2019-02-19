@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>../../phpcpp.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>../../zend/base.cpp</itemPath>
+      <itemPath>../../zend/callable.cpp</itemPath>
+      <itemPath>../../zend/classbase.cpp</itemPath>
+      <itemPath>../../zend/classimpl.cpp</itemPath>
+      <itemPath>../../zend/constant.cpp</itemPath>
+      <itemPath>../../zend/constantfuncs.cpp</itemPath>
+      <itemPath>../../zend/eval.cpp</itemPath>
+      <itemPath>../../zend/exception_handler.cpp</itemPath>
+      <itemPath>../../zend/exists.cpp</itemPath>
+      <itemPath>../../zend/extension.cpp</itemPath>
+      <itemPath>../../zend/extensionimpl.cpp</itemPath>
+      <itemPath>../../zend/fatalerror.cpp</itemPath>
+      <itemPath>../../zend/file.cpp</itemPath>
+      <itemPath>../../zend/function.cpp</itemPath>
+      <itemPath>../../zend/functor.cpp</itemPath>
+      <itemPath>../../zend/global.cpp</itemPath>
+      <itemPath>../../zend/globals.cpp</itemPath>
+      <itemPath>../../zend/hashmember.cpp</itemPath>
+      <itemPath>../../zend/ini.cpp</itemPath>
+      <itemPath>../../zend/inivalue.cpp</itemPath>
+      <itemPath>../../zend/iteratorimpl.cpp</itemPath>
+      <itemPath>../../zend/members.cpp</itemPath>
+      <itemPath>../../common/modifiers.cpp</itemPath>
+      <itemPath>../../zend/module.cpp</itemPath>
+      <itemPath>../../zend/namespace.cpp</itemPath>
+      <itemPath>../../zend/object.cpp</itemPath>
+      <itemPath>../../zend/sapi.cpp</itemPath>
+      <itemPath>../../zend/script.cpp</itemPath>
+      <itemPath>../../zend/streambuf.cpp</itemPath>
+      <itemPath>../../zend/streams.cpp</itemPath>
+      <itemPath>../../zend/super.cpp</itemPath>
+      <itemPath>../../zend/value.cpp</itemPath>
+      <itemPath>../../zend/valueiterator.cpp</itemPath>
+      <itemPath>../../zend/zendcallable.cpp</itemPath>
+      <itemPath>../../zend/zval.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <incDir>
+            <pElem>/usr/include/php/20151012/main</pElem>
+            <pElem>/usr/include/php/20151012/Zend</pElem>
+            <pElem>/usr/include/php/20151012/TSRM</pElem>
+          </incDir>
+          <commandLine>-std=c++11</commandLine>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>/usr/include/php/20151012/main</pElem>
+            <pElem>/usr/include/php/20151012/Zend</pElem>
+            <pElem>/usr/include/php/20151012/TSRM</pElem>
+          </incDir>
+          <commandLine>-std=c++11</commandLine>
+        </ccTool>
+        <archiverTool>
+        </archiverTool>
+      </compileType>
+      <item path="../../common/modifiers.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../phpcpp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../zend/base.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/callable.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/classbase.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/classimpl.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/constant.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/constantfuncs.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/eval.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/exception_handler.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/exists.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/extension.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/extensionimpl.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/fatalerror.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/file.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/function.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/functor.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/global.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/globals.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/hashmember.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/ini.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/inivalue.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/iteratorimpl.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/members.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/module.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/namespace.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/object.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/sapi.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/script.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/streambuf.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/streams.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/super.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/value.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/valueiterator.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/zendcallable.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/zval.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="3">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <stripSymbols>true</stripSymbols>
+          <incDir>
+            <pElem>/usr/include/php/20151012/main</pElem>
+            <pElem>/usr/include/php/20151012/Zend</pElem>
+            <pElem>/usr/include/php/20151012/TSRM</pElem>
+          </incDir>
+          <commandLine>-std=c++11</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <stripSymbols>true</stripSymbols>
+          <incDir>
+            <pElem>/usr/include/php/20151012/main</pElem>
+            <pElem>/usr/include/php/20151012/Zend</pElem>
+            <pElem>/usr/include/php/20151012/TSRM</pElem>
+          </incDir>
+          <commandLine>-std=c++11</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <archiverTool>
+        </archiverTool>
+      </compileType>
+      <item path="../../common/modifiers.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../phpcpp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../../zend/base.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/callable.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/classbase.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/classimpl.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/constant.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/constantfuncs.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/eval.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/exception_handler.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/exists.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/extension.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/extensionimpl.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/fatalerror.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/file.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/function.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/functor.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/global.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/globals.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/hashmember.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/ini.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/inivalue.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/iteratorimpl.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/members.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/module.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/namespace.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/object.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/sapi.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/script.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/streambuf.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/streams.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/super.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/value.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/valueiterator.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/zendcallable.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../../zend/zval.cpp" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
