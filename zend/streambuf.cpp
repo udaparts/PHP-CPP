@@ -15,6 +15,7 @@
  */
 namespace Php {
 
+#ifdef PHP_WIN32
     /**
      *  Constructor
      *  @param  error
@@ -49,6 +50,7 @@ namespace Php {
         // and now we're going to syn the buffer
         return sync() == -1 ? EOF : c;
     }
+#endif
 
     /**
      *  Called when the internal buffer should be synchronized

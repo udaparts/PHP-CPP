@@ -34,7 +34,7 @@ public:
     Callable(ZendCallback callback, const char *name, const Arguments &arguments = {}) :
         _callback(callback),
         _name(name),
-        _argc(arguments.size()),
+        _argc((int)arguments.size()),
         _argv(new zend_internal_arg_info[_argc + 2])
     {
         // the first record is initialized with information about the function,

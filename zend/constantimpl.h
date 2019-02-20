@@ -59,7 +59,7 @@ public:
     ConstantImpl(const char *name, int64_t value) : _name(name)
     {
         // initialize the zval
-        ZVAL_LONG(&_constant.value, value);
+        ZVAL_LONG(&_constant.value, (zend_long)value);
     }
 
     /**

@@ -74,7 +74,7 @@ Value::Value(int32_t value)
 Value::Value(int64_t value)
 {
     // create an integer zval
-    ZVAL_LONG(_val, value);
+    ZVAL_LONG(_val, (zend_long)value);
 }
 
 /**
@@ -488,7 +488,7 @@ Value &Value::operator=(int64_t value)
 {
     zval z;
 
-    ZVAL_LONG(&z, value);
+    ZVAL_LONG(&z, (zend_long)value);
     return operator=(&z);
 }
 
@@ -1373,14 +1373,14 @@ int Value::size() const
         zend_long result;
 
         // call the function
-        return Z_OBJ_HT_P(_val)->count_elements(_val, &result) == SUCCESS ? result : 0;
+        return (Z_OBJ_HT_P(_val)->count_elements(_val, &result) == SUCCESS) ? (int)result : 0;
     }
 
     // not an array, return string size if this is a string
     else if (isString())
     {
         // get string size
-        return Z_STRLEN_P(_val);
+        return (int)Z_STRLEN_P(_val);
     }
 
     // in all other situations, we convert the variable to a string
@@ -1507,7 +1507,7 @@ bool Value::contains(int index) const
 bool Value::contains(const char *key, int size) const
 {
     // calculate size
-    if (size < 0) size = ::strlen(key);
+    if (size < 0) size = (int)::strlen(key);
 
     // deal with arrays
     if (isArray())
@@ -1577,7 +1577,7 @@ Value Value::get(const char *key, int size) const
     if (!isArray() && !isObject()) return Value();
 
     // calculate size
-    if (size < 0) size = ::strlen(key);
+    if (size < 0) size = (int)::strlen(key);
 
     // are we in an object or an array?
     if (isArray())

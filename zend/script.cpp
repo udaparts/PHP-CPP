@@ -31,7 +31,7 @@ zend_op_array *Script::compile(const char *name, const char *phpcode, size_t siz
     // the zend_eval_stringl() function into this file here. However, the code
     // found there is full of zval manipulation, for which we can use the much
     // simpler Php::Value object
-    Php::Value source(phpcode, size);
+    Php::Value source(phpcode, (int)size);
 
     // remember the old compiler options, and set new compiler options
     CompilerOptions options(ZEND_COMPILE_DEFAULT_FOR_EVAL);

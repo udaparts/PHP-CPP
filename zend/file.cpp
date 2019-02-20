@@ -29,7 +29,7 @@ namespace Php {
 File::File(const char *name, size_t size)
 {
     // resolve the path
-    _path = zend_resolve_path(name, size);
+    _path = zend_resolve_path(name, (int)size);
 }
 
 /**

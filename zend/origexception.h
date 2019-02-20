@@ -70,9 +70,9 @@ public:
 
         // store the message, code, filename and line number
         _message.assign(ZSTR_VAL(message), ZSTR_LEN(message));
-        _code = code;
+        _code = (long int)code;
         _file.assign(ZSTR_VAL(file), ZSTR_LEN(file));
-        _line = line;
+        _line = (long int)line;
 
         // clean up message and file strings
         zend_string_release(message);

@@ -472,11 +472,11 @@ public:
         std::vector<T> result;
 
         // reserve enough space
-        size_t count = size();
+        int count = size();
         result.reserve(count);
 
         // and fill the result vector
-        for (size_t i = 0; i<count; i++)
+        for (int i = 0; i<count; i++)
         {
             // check if the index exists
             if (!contains(i)) continue;
@@ -614,7 +614,7 @@ public:
      */
     virtual bool contains(const std::string &key) const override
     {
-        return contains(key.c_str(), key.size());
+        return contains(key.c_str(), (int)key.size());
     }
 
     /**
@@ -633,7 +633,7 @@ public:
      */
     bool contains(const char *key) const
     {
-        return contains(key, ::strlen(key));
+        return contains(key, (int)::strlen(key));
     }
 
     /**
@@ -643,7 +643,7 @@ public:
      */
     virtual bool contains(const Value &value) const override
     {
-        if (value.isNumeric()) return contains(value.numericValue());
+        if (value.isNumeric()) return contains((int)value.numericValue());
         if (value.isString()) return contains(value.rawValue(), value.size());
         return contains(value.stringValue());
     }
@@ -776,7 +776,7 @@ public:
      */
     virtual Value get(const std::string &key) const override
     {
-        return get(key.c_str(), key.size());
+        return get(key.c_str(), (int)key.size());
     }
 
     /**
@@ -786,7 +786,7 @@ public:
      */
     virtual Value get(const Value &key) const override
     {
-        if (key.isNumeric()) return get(key.numericValue());
+        if (key.isNumeric()) return get((int)key.numericValue());
         if (key.isString()) return get(key.rawValue(), key.size());
         return get(key.stringValue());
     }
@@ -817,7 +817,7 @@ public:
      */
     void set(const char *key, const Value &value)
     {
-        set(key, ::strlen(key), value);
+        set(key, (int)::strlen(key), value);
     }
 
     /**
@@ -828,7 +828,7 @@ public:
      */
     virtual void set(const std::string &key, const Value &value) override
     {
-        return set(key.c_str(), key.size(), value);
+        return set(key.c_str(), (int)key.size(), value);
     }
 
     /**
@@ -838,7 +838,7 @@ public:
      */
     virtual void set(const Value &key, const Value &value) override
     {
-        if (key.isNumeric()) return set(key.numericValue(), value);
+        if (key.isNumeric()) return set((int)key.numericValue(), value);
         if (key.isString()) return set(key.rawValue(), key.size(), value);
         return set(key.stringValue(), value);
     }
@@ -863,7 +863,7 @@ public:
      */
     void unset(const char *key)
     {
-        unset(key, ::strlen(key));
+        unset(key, (int)::strlen(key));
     }
 
     /**
@@ -872,7 +872,7 @@ public:
      */
     virtual void unset(const std::string &key) override
     {
-        return unset(key.c_str(), key.size());
+        return unset(key.c_str(), (int)key.size());
     }
 
     /**
@@ -881,7 +881,7 @@ public:
      */
     virtual void unset(const Value &key) override
     {
-        if (key.isNumeric()) return unset(key.numericValue());
+        if (key.isNumeric()) return unset((int)key.numericValue());
         if (key.isString()) return unset(key.rawValue(), key.size());
         return unset(key.stringValue());
     }
@@ -957,7 +957,7 @@ public:
      */
     Value operator[](const Value &key) const
     {
-        if (key.isNumeric()) return get(key.numericValue());
+        if (key.isNumeric()) return get((int)key.numericValue());
         if (key.isString()) return get(key.rawValue(), key.size());
         return get(key.stringValue());
     }

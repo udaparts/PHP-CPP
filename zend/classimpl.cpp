@@ -118,7 +118,7 @@ void ClassImpl::callMethod(INTERNAL_FUNCTION_PARAMETERS)
         // return a full copy of the zval, and do not destruct it
         RETVAL_ZVAL(result._val, 1, 0);
     }
-    catch (const NotImplemented &exception)
+    catch (const NotImplemented &)
     {
         // because of the two-step nature, we are going to report the error ourselves
         zend_error(E_ERROR, "Undefined method %s", name);
@@ -162,7 +162,7 @@ void ClassImpl::callInvoke(INTERNAL_FUNCTION_PARAMETERS)
         // return a full copy of the zval, and do not destruct it
         RETVAL_ZVAL(result._val, 1, 0);
     }
-    catch (const NotImplemented &exception)
+    catch (const NotImplemented &)
     {
         // because of the two-step nature, we are going to report the error ourselves
         zend_error(E_ERROR, "Function name must be a string");
@@ -376,7 +376,7 @@ zend_object_handlers *ClassImpl::objectHandlers()
 
     // set the offset between our class implementation and
     // the zend_object member in the allocated structure
-    _handlers.offset = ObjectImpl::offset();
+    _handlers.offset = (int)ObjectImpl::offset();
 
     // remember that object is now initialized
     _initialized = true;
@@ -422,7 +422,7 @@ int ClassImpl::compare(zval *val1, zval *val2)
         // run the compare method
         return meta->callCompare(object1, object2);
     }
-    catch (const NotImplemented &exception)
+    catch (const NotImplemented &)
     {
         // it was not implemented, do we have a default?
         if (!std_object_handlers.compare_objects) return 1;
@@ -484,7 +484,7 @@ int ClassImpl::cast(zval *val, zval *retval, int type)
         // done
         return SUCCESS;
     }
-    catch (const NotImplemented &exception)
+    catch (const NotImplemented &)
     {
         // is there a default?
         if (!std_object_handlers.cast_object) return FAILURE;
@@ -886,7 +886,7 @@ zval *ClassImpl::readProperty(zval *object, zval *name, int type, void **cache_s
             return toZval(iter->second->get(base), type, rv);
         }
     }
-    catch (const NotImplemented &exception)
+    catch (const NotImplemented &)
     {
         // __get() function was not overridden by the user
         if (!std_object_handlers.read_property) return nullptr;
@@ -954,7 +954,7 @@ void ClassImpl::writeProperty(zval *object, zval *name, zval *value, void **cach
             zend_error(E_ERROR, "Unable to write to read-only property %s", (const char *)key);
         }
     }
-    catch (const NotImplemented &exception)
+    catch (const NotImplemented &)
     {
         // __set() function was not overridden by user, check if there is a default
         if (!std_object_handlers.write_property) return;
@@ -1026,7 +1026,7 @@ int ClassImpl::hasProperty(zval *object, zval *name, int has_set_exists, void **
         default:    return value.boolValue();
         }
     }
-    catch (const NotImplemented &exception)
+    catch (const NotImplemented &)
     {
         // __isset was not implemented, do we have a default?
         if (!std_object_handlers.has_property) return 0;
@@ -1078,7 +1078,7 @@ void ClassImpl::unsetProperty(zval *object, zval *member, void **cache_slot)
         // callback properties cannot be unset
         zend_error(E_ERROR, "Property %s can not be unset", (const char *)name);
     }
-    catch (const NotImplemented &exception)
+    catch (const NotImplemented &)
     {
         // __unset was not implemented, do we have a default?
         if (!std_object_handlers.unset_property) return;
@@ -1113,7 +1113,7 @@ void ClassImpl::destructObject(zend_object *object)
         // call the destruct function
         if (obj->object()) impl->_base->callDestruct(obj->object());
     }
-    catch (const NotImplemented &exception)
+    catch (const NotImplemented &)
     {
         // fallback on the default destructor call
         zend_objects_destroy_object(object);
@@ -1270,7 +1270,7 @@ int ClassImpl::unserialize(zval *object, zend_class_entry *entry, const unsigned
         // call the unserialize method on it
         serializable->unserialize((const char *)buffer, buf_len);
     }
-    catch (Exception &exception)
+    catch (const Exception &)
     {
         // user threw an exception in its method
         // implementation, send it to user space

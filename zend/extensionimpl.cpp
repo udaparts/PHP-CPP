@@ -208,7 +208,7 @@ ExtensionImpl::ExtensionImpl(Extension *data, const char *name, const char *vers
     // assign all members (apart from the globals)
     _entry.size = sizeof(zend_module_entry);                       // size of the data
     _entry.zend_api = ZEND_MODULE_API_NO;                          // api number
-    _entry.zend_debug = ZEND_DEBUG;                                // debug mode enabled?
+    _entry.zend_debug = 1;										   // debug mode enabled?
     _entry.zts = USING_ZTS;                                        // is thread safety enabled?
     _entry.ini_entry = NULL;                                       // the php.ini record, will be filled by Zend engine
     _entry.deps = NULL;                                            // dependencies on other modules
@@ -296,7 +296,7 @@ zend_module_entry *ExtensionImpl::module()
     if (_entry.module_startup_func == &ExtensionImpl::processMismatch) return &_entry;
 
     // the number of functions
-    int count = _data->functions();
+    size_t count = _data->functions();
     
     // skip if there are no functions
     if (count == 0) return &_entry;
