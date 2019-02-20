@@ -33,7 +33,7 @@ ZEND_END_MODULE_GLOBALS(phpcpp)
  *  from PHP to get access to a variable from the structure above.
  */
 #ifdef ZTS
-#define PHPCPP_G(v) TSRMG(phpcpp_globals_id, phpcpp_globals *, v)
+#define PHPCPP_G(v) TSRMG(phpcpp_globals_id, zend_phpcpp_globals *, v)
 #else
 #define PHPCPP_G(v) (phpcpp_globals.v)
 #endif
