@@ -892,7 +892,12 @@ Value Value::call(const char *name)
 Value Value::exec(int argc, Value *argv) const
 {
     // array of zvals to execute
-    zval params[argc];
+#ifdef PHP_WIN32
+	std::shared_ptr<zval> pzval(new zval[argc]);
+	zval *params = pzval.get();
+#else
+	zval params[argc];
+#endif
 
     // convert all the values
     for(int i = 0; i < argc; i++) { params[i] = *argv[i]._val; }
@@ -914,7 +919,12 @@ Value Value::exec(const char *name, int argc, Value *argv) const
     Value method(name);
 
     // array of zvals to execute
-    zval params[argc];
+#ifdef PHP_WIN32
+	std::shared_ptr<zval> pzval(new zval[argc]);
+	zval *params = pzval.get();
+#else
+	zval params[argc];
+#endif
 
     // convert all the values
     for(int i = 0; i < argc; i++) { params[i] = *argv[i]._val; }
@@ -936,7 +946,12 @@ Value Value::exec(const char *name, int argc, Value *argv)
     Value method(name);
 
     // array of zvals to execute
-    zval params[argc];
+#ifdef PHP_WIN32
+	std::shared_ptr<zval> pzval(new zval[argc]);
+	zval *params = pzval.get();
+#else
+	zval params[argc];
+#endif
 
     // convert all the values
     for(int i = 0; i < argc; i++) { params[i] = *argv[i]._val; }
@@ -1417,8 +1432,8 @@ ValueIterator Value::createIterator(bool begin) const
         // check if there is an iterator
         if (entry->get_iterator)
         {
-            // the object implements Traversable interface, we have to use a
-            // special iterator to user that interface too
+            // the object implements Traversable interf, we have to use a
+            // special iterator to user that interf too
             return ValueIterator(new TraverseIterator(_val, begin));
         }
         else

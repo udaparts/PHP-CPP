@@ -117,15 +117,15 @@ extern "C"
         // create extension
         static Php::Extension extension("Cpp_classes_in_php","1.0");
         
-        // build an interface
-        Php::Interface interface("MyInterface");
+        // build an interf
+        Php::Interface interf("MyInterface");
         
-        // add methods to the interface
-        interface.method("method1");
-        interface.method("method2");
+        // add methods to the interf
+        interf.method("method1");
+        interf.method("method2");
         
-        // add the interface to the extension
-        extension.add(interface);
+        // add the interf to the extension
+        extension.add(interf);
         
         // we are going to define a class
         Php::Class<MyCustomClass> customClass("MyClass");

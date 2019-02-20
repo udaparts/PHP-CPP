@@ -118,7 +118,7 @@ public:
     virtual Base *clone(Base *orig) const { return nullptr; }
 
     /**
-     *  Methods to check if a certain interface is overridden, or a copy
+     *  Methods to check if a certain interf is overridden, or a copy
      *  constructor is available
      *  @return bool
      */
@@ -291,10 +291,10 @@ protected:
     void property(const char *name, const getter_callback_1 &getter, const setter_callback_1 &setter);
 
     /**
-     *  Add an interface
-     *  @param  interface       Interface object
+     *  Add an interf
+     *  @param  interf       Interface object
      */
-    void implements(const ClassBase &interface);
+    void implements(const ClassBase &interf);
 
     /**
      *  Set the base class

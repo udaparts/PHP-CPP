@@ -345,10 +345,10 @@ zend_object_handlers *ClassImpl::objectHandlers()
     if (!_base->clonable()) _handlers.clone_obj = nullptr;
     else _handlers.clone_obj = &ClassImpl::cloneObject;
 
-    // functions for the Countable interface
+    // functions for the Countable interf
     _handlers.count_elements = &ClassImpl::countElements;
 
-    // functions for the ArrayAccess interface
+    // functions for the ArrayAccess interf
     _handlers.write_dimension = &ClassImpl::writeDimension;
     _handlers.read_dimension = &ClassImpl::readDimension;
     _handlers.has_dimension = &ClassImpl::hasDimension;
@@ -547,7 +547,7 @@ zend_object *ClassImpl::cloneObject(zval *val)
 /**
  *  Function that is used to count the number of elements in the object
  *
- *  If the user has implemented the Countable interface, this method will
+ *  If the user has implemented the Countable interf, this method will
  *  call the count() method
  *
  *  @param  val
@@ -556,10 +556,10 @@ zend_object *ClassImpl::cloneObject(zval *val)
  */
 int ClassImpl::countElements(zval *object, zend_long *count)
 {
-    // does it implement the countable interface?
+    // does it implement the countable interf?
     Countable *countable = dynamic_cast<Countable*>(ObjectImpl::find(object)->object());
 
-    // if it does not implement the Countable interface, we rely on the default implementation
+    // if it does not implement the Countable interf, we rely on the default implementation
     if (countable)
     {
         // the user function may throw an exception that needs to be processed
@@ -582,7 +582,7 @@ int ClassImpl::countElements(zval *object, zend_long *count)
     }
     else
     {
-        // Countable interface was not implemented, check if there is a default
+        // Countable interf was not implemented, check if there is a default
         if (!std_object_handlers.count_elements) return FAILURE;
 
         // call default
@@ -594,7 +594,7 @@ int ClassImpl::countElements(zval *object, zend_long *count)
  *  Function that is called when the object is used as an array in PHP
  *
  *  This is the [] operator in PHP, and mapped to the offsetGet() method
- *  of the ArrayAccess interface
+ *  of the ArrayAccess interf
  *
  *  @param  object          The object on which it is called
  *  @param  offset          The name of the property
@@ -622,10 +622,10 @@ zval *ClassImpl::readDimension(zval *object, zval *offset, int type, zval *rv)
     // that is in most cases simply impossible.
 
 
-    // does it implement the arrayaccess interface?
+    // does it implement the arrayaccess interf?
     ArrayAccess *arrayaccess = dynamic_cast<ArrayAccess*>(ObjectImpl::find(object)->object());
 
-    // if it does not implement the ArrayAccess interface, we rely on the default implementation
+    // if it does not implement the ArrayAccess interf, we rely on the default implementation
     if (arrayaccess)
     {
         // the C++ code may throw an exception
@@ -657,7 +657,7 @@ zval *ClassImpl::readDimension(zval *object, zval *offset, int type, zval *rv)
  *  Function that is called when the object is used as an array in PHP
  *
  *  This is the [] operator in PHP, and mapped to the offsetSet() method
- *  of the ArrayAccess interface
+ *  of the ArrayAccess interf
  *
  *  @param  object          The object on which it is called
  *  @param  offset          The name of the property
@@ -666,10 +666,10 @@ zval *ClassImpl::readDimension(zval *object, zval *offset, int type, zval *rv)
  */
 void ClassImpl::writeDimension(zval *object, zval *offset, zval *value)
 {
-    // does it implement the arrayaccess interface?
+    // does it implement the arrayaccess interf?
     ArrayAccess *arrayaccess = dynamic_cast<ArrayAccess*>(ObjectImpl::find(object)->object());
 
-    // if it does not implement the ArrayAccess interface, we rely on the default implementation
+    // if it does not implement the ArrayAccess interf, we rely on the default implementation
     if (arrayaccess)
     {
         // method may throw an exception
@@ -686,7 +686,7 @@ void ClassImpl::writeDimension(zval *object, zval *offset, zval *value)
     }
     else
     {
-        // ArrayAccess not interface, check if there is a default handler
+        // ArrayAccess not interf, check if there is a default handler
         if (!std_object_handlers.write_dimension) return;
 
         // call the default
@@ -698,7 +698,7 @@ void ClassImpl::writeDimension(zval *object, zval *offset, zval *value)
  *  Function that is called when the object is used as an array in PHP
  *
  *  This is the [] operator in PHP, and mapped to the offsetExists() method
- *  of the ArrayAccess interface
+ *  of the ArrayAccess interf
  *
  *  @param  object          The object on which it is called
  *  @param  member          The member to check
@@ -707,10 +707,10 @@ void ClassImpl::writeDimension(zval *object, zval *offset, zval *value)
  */
 int ClassImpl::hasDimension(zval *object, zval *member, int check_empty)
 {
-    // does it implement the arrayaccess interface?
+    // does it implement the arrayaccess interf?
     ArrayAccess *arrayaccess = dynamic_cast<ArrayAccess*>(ObjectImpl::find(object)->object());
 
-    // if it does not implement the ArrayAccess interface, we rely on the default implementation
+    // if it does not implement the ArrayAccess interf, we rely on the default implementation
     if (arrayaccess)
     {
         // user implemented callbacks could throw an exception
@@ -737,7 +737,7 @@ int ClassImpl::hasDimension(zval *object, zval *member, int check_empty)
     }
     else
     {
-        // ArrayAccess interface is not implemented, check if there is a default handler
+        // ArrayAccess interf is not implemented, check if there is a default handler
         if (!std_object_handlers.has_dimension) return 0;
 
         // call default
@@ -749,17 +749,17 @@ int ClassImpl::hasDimension(zval *object, zval *member, int check_empty)
  *  Function that is called when the object is used as an array in PHP
  *
  *  This is the [] operator in PHP, and mapped to the offsetUnset() method
- *  of the ArrayAccess interface
+ *  of the ArrayAccess interf
  *
  *  @param  object          The object on which it is called
  *  @param  member          The member to remove
  */
 void ClassImpl::unsetDimension(zval *object, zval *member)
 {
-    // does it implement the arrayaccess interface?
+    // does it implement the arrayaccess interf?
     ArrayAccess *arrayaccess = dynamic_cast<ArrayAccess*>(ObjectImpl::find(object)->object());
 
-    // if it does not implement the ArrayAccess interface, we rely on the default implementation
+    // if it does not implement the ArrayAccess interf, we rely on the default implementation
     if (arrayaccess)
     {
         // user implemented code could throw an exception
@@ -1405,13 +1405,13 @@ zend_class_entry *ClassImpl::initialize(ClassBase *base, const std::string &pref
     }
 
     // register the classes
-    for (auto &interface : _interfaces)
+    for (auto &interf : _interfaces)
     {
-        // register this interface
-        if (interface->_entry) zend_class_implements(_entry, 1, interface->_entry);
+        // register this interf
+        if (interf->_entry) zend_class_implements(_entry, 1, interf->_entry);
 
         // otherwise report an error
-        else std::cerr << "Derived class " << name() << " is initialized before base class " << interface->name() << ": interface is ignored" << std::endl;
+        else std::cerr << "Derived class " << name() << " is initialized before base class " << interf->name() << ": interf is ignored" << std::endl;
     }
 
     // this pointer has to be copied to temporary pointer, as &this causes compiler error

@@ -1,7 +1,7 @@
 /**
- *  Serializable interface
+ *  Serializable interf
  *
- *  This interface can be implemented to make an object that can be passed to
+ *  This interf can be implemented to make an object that can be passed to
  *  the PHP serialize() and unserialize() methods.
  *
  *  @author Emiel Bruijntjes <emiel.bruijntjes@copernica.com>

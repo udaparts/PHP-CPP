@@ -3,7 +3,7 @@
  *
  *  This is an internal helper class that is used when iterating over a
  *  Php::Value object that holds a hash table (an array or an object that
- *  does not implement the Traversable interface - stl style.
+ *  does not implement the Traversable interf - stl style.
  *
  *  Thus, when you do c++ things like "for (auto &iter : value)", internally
  *  a ValueIterator object is being used.

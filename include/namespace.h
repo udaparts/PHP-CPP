@@ -157,34 +157,34 @@ public:
     }
 
     /**
-     *  Add an interface to the namespace by moving it
-     *  @param  interface   The interface properties
+     *  Add an interf to the namespace by moving it
+     *  @param  interf   The interf properties
      *  @return Namespace   Same object to allow chaining
      */
-    Namespace &add(Interface &&interface)
+    Namespace &add(Interface &&interf)
     {
         // skip when locked
         if (locked()) return *this;
 
         // make a copy and add it to the list of classes
-        _classes.push_back(std::unique_ptr<ClassBase>(new Interface(std::move(interface))));
+        _classes.push_back(std::unique_ptr<ClassBase>(new Interface(std::move(interf))));
 
         // allow chaining
         return *this;
     }
 
     /**
-     *  Add an interface to the namespace by copying it
-     *  @param  interface   The interface properties
+     *  Add an interf to the namespace by copying it
+     *  @param  interf   The interf properties
      *  @return Namespace   Same object to allow chaining
      */
-    Namespace &add(const Interface &interface)
+    Namespace &add(const Interface &interf)
     {
         // skip when locked
         if (locked()) return *this;
 
         // make a copy and add it to the list of classes
-        _classes.push_back(std::unique_ptr<ClassBase>(new Interface(interface)));
+        _classes.push_back(std::unique_ptr<ClassBase>(new Interface(interf)));
 
         // allow chaining
         return *this;

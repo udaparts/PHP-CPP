@@ -36,7 +36,7 @@ bool class_exists(const char *classname, size_t len, bool autoload)
         // no auto-load
         if (!ce) return false;
 
-        // the found "class" could also be an interface or trait, which we do no want
+        // the found "class" could also be an interf or trait, which we do no want
         return (ce->ce_flags & (ZEND_ACC_INTERFACE | (ZEND_ACC_TRAIT - ZEND_ACC_EXPLICIT_ABSTRACT_CLASS))) == 0;
     }
     else
@@ -56,7 +56,7 @@ bool class_exists(const char *classname, size_t len, bool autoload)
         // check whether something was found
         if (val == nullptr) return false;
 
-        // the "something" could also be an interface or trait, which we do no want
+        // the "something" could also be an interf or trait, which we do no want
         return !(((Z_CE_P(val))->ce_flags & (ZEND_ACC_INTERFACE | ZEND_ACC_TRAIT)) > ZEND_ACC_EXPLICIT_ABSTRACT_CLASS);
     }
 }

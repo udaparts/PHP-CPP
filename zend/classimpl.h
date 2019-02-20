@@ -193,7 +193,7 @@ public:
 
     /**
      *  Function that is used to count the number of elements in the object
-     *  If the user has implemented the Countable interface, this method will
+     *  If the user has implemented the Countable interf, this method will
      *  call the count() method
      *  @param  val
      *  @param  count
@@ -410,7 +410,7 @@ public:
         // the "MethodModifiers" holds all the valid modifiers for a method: Final + Public + Protected + Private.
         // The "Static" and "Abstract" properties are also valid modifiers in this context (in fact, you would
         // expect that we could even force adding "Abstract" here, because we're adding an abstract method -- but
-        // in a PHP interface the "Abstract" modifier is not allowed - even though it is of course abstract.
+        // in a PHP interf the "Abstract" modifier is not allowed - even though it is of course abstract.
         // So we only _allow_ abstract here, and expect the caller to _set_ it.
         _methods.push_back(std::make_shared<Method>(name, (flags & (MethodModifiers | Static | Abstract)), args));
     }
@@ -452,10 +452,10 @@ public:
     void property(const char *name, const getter_callback_1 &getter, const setter_callback_1 &setter)   { _properties[name] = std::make_shared<Property>(getter,setter); }
 
     /**
-     *  Add an interface that is implemented
-     *  @param  interface   The interface that is implemented
+     *  Add an interf that is implemented
+     *  @param  interf   The interf that is implemented
      */
-    void implements(const std::shared_ptr<ClassImpl> &interface) { _interfaces.push_back(interface); }
+    void implements(const std::shared_ptr<ClassImpl> &interf) { _interfaces.push_back(interf); }
 
     /**
      *  Set the base class

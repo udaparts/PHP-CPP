@@ -73,10 +73,12 @@ private:
             {
                 // get first handle
                 auto iter = _handles.begin();
-                
-                // remove the handle
+				//remove the handle
+#ifdef PHP_WIN32
+				DL_UNLOAD((HMODULE)*iter);
+#else
                 DL_UNLOAD(*iter);
-                
+#endif
                 // remove from set
                 _handles.erase(iter);
             }

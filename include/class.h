@@ -275,15 +275,15 @@ public:
     Class<T> &property(const char *name, Value (T::*getter)() const, void (T::*setter)(const Value &value) const) { ClassBase::property(name, static_cast<getter_callback_1>(getter), static_cast<setter_callback_1>(setter)); return *this; }
 
     /**
-     *  Add a PHP interface to the class
+     *  Add a PHP interf to the class
      *
-     *  Note that the interface that you supply must already exist! Therefore
+     *  Note that the interf that you supply must already exist! Therefore
      *  you can only supply interfaces that you created in your own extension.
      *
-     *  @param  interface   Interface object
+     *  @param  interf   Interface object
      *  @return Class       Same object to allow chaining
      */
-    Class<T> &implements(const Interface &interface) { ClassBase::implements(interface); return *this; }
+    Class<T> &implements(const Interface &interf) { ClassBase::implements(interf); return *this; }
 
     /**
      *  Add a base class

@@ -11,20 +11,20 @@
  *  @copyright 2015 Copernica B.V.
  */
 
-#if defined _WIN32 || defined __CYGWIN__
-    #ifdef BUILDING_PHPCPP
-        #ifdef __GNUC__
-            #define PHPCPP_EXPORT __attribute__ ((dllexport))
-        #else
-            #define PHPCPP_EXPORT __declspec(dllexport) // Note: actually gcc seems to also supports this syntax.
-        #endif
-    #else
-        #ifdef __GNUC__
-            #define DLL_EXPORT __attribute__ ((dllimport))
-        #else
-            #define DLL_EXPORT __declspec(dllimport) // Note: actually gcc seems to also supports this syntax.
-        #endif
-    #endif
+#if defined(_MSC_VER) || defined(__CYGWIN__)
+	#ifdef BUILDING_PHPCPP
+		#ifdef __GNUC__
+			#define PHPCPP_EXPORT __attribute__ ((dllexport))
+		#else
+			#define PHPCPP_EXPORT __declspec(dllexport) // Note: actually gcc seems to also supports this syntax.
+		#endif
+	#else
+		#ifdef __GNUC__
+			#define PHPCPP_EXPORT __attribute__ ((dllimport))
+		#else
+			#define PHPCPP_EXPORT
+		#endif
+	#endif
 #else
-    #define PHPCPP_EXPORT __attribute__ ((visibility ("default")))
+	#define PHPCPP_EXPORT __attribute__ ((visibility ("default")))
 #endif

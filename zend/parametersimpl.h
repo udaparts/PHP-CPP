@@ -28,8 +28,13 @@ public:
         // reserve plenty of space
         reserve(argc);
 
-        // array to store all the arguments in
-        zval arguments[argc];
+#ifdef PHP_WIN32
+		std::shared_ptr<zval> pzval(new zval[argc]);
+		zval *arguments = pzval.get();
+#else
+		// array to store all the arguments in
+		zval arguments[argc];
+#endif
 
         // retrieve the arguments
         zend_get_parameters_array_ex(argc, arguments);

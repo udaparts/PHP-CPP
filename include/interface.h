@@ -28,7 +28,7 @@ public:
     virtual ~Interface() {}
 
     /**
-     *  Add a - of course abstract - method to the interface
+     *  Add a - of course abstract - method to the interf
      *  @param  name        Name of the method
      *  @param  arguments   Optional description of the arguments
      *  @return Interface   Same object to allow chaining
@@ -43,7 +43,7 @@ public:
     }
 
     /**
-     *  Add a - of course abstract - method to the interface
+     *  Add a - of course abstract - method to the interf
      *  @param  name        Name of the method
      *  @param  flags       Optional flags
      *  @param  arguments   Optional description of the arguments
@@ -51,7 +51,7 @@ public:
      */
     Interface &method(const char *name, int flags, const Arguments &arguments = {})
     {
-        // call base (an interface method is always public, so we add these flags,
+        // call base (an interf method is always public, so we add these flags,
         // and although it is always abstract, PHP does not allow this flag, so we
         // remove it in case the extension programmer had set it)
         ClassBase::method(name, (Public | flags) & ~Abstract, arguments);
@@ -61,25 +61,25 @@ public:
     }
     
     /**
-     *  Extends exisiting PHP interface
+     *  Extends exisiting PHP interf
      *
-     *  Note that the interface that you supply must already exist! Therefore
+     *  Note that the interf that you supply must already exist! Therefore
      *  you can only supply interfaces that you created in your own extension.
      *
-     *  @param  interface   Interface object
+     *  @param  interf   Interface object
      *  @return Interface   Same object to allow chaining
      */
-    Interface &extends(const Interface &interface) { ClassBase::implements(interface); return *this; }
+    Interface &extends(const Interface &interf) { ClassBase::implements(interf); return *this; }
 
     /**
      *  The namespace needs to have access to the private ClassBase base
-     *  class, to actually register the interface.
+     *  class, to actually register the interf.
      */
     friend class Namespace;
 
     /**
      *  All Php::Class<AnyThing> also need access to the base class to
-     *  register an interface.
+     *  register an interf.
      */
     template<typename ANYTHING> friend class Class;
 };

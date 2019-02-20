@@ -15,7 +15,7 @@
 # ifndef _MSC_VER
 #  define _NOEXCEPT noexcept
 # else
-#  define _NOEXCEPT __declspec(nothrow)
+#  define _NOEXCEPT noexcept
 # endif
 #endif
 

@@ -76,7 +76,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>ZEND_WIN32;PHP_WIN32;ZTS;_WIN32;ZEND_WIN32_KEEP_INLINE;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ZEND_WIN32;PHP_WIN32;ZTS;ZEND_DEBUG=1;_WIN32;ZEND_WIN32_KEEP_INLINE;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -89,7 +89,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>ZEND_WIN32;PHP_WIN32;ZTS;ZEND_WIN32_KEEP_INLINE;_CRT_SECURE_NO_WARNINGS;_WIN64;_DEBUG;_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ZEND_WIN32;PHP_WIN32;ZTS;ZEND_DEBUG=1;ZEND_WIN32_KEEP_INLINE;_CRT_SECURE_NO_WARNINGS;_WIN64;_DEBUG;_LIB</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -104,7 +104,7 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>ZEND_WIN32;PHP_WIN32;ZTS;_WIN32;ZEND_WIN32_KEEP_INLINE;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ZEND_WIN32;PHP_WIN32;ZTS;ZEND_DEBUG=0;_WIN32;ZEND_WIN32_KEEP_INLINE;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB</PreprocessorDefinitions>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
@@ -122,7 +122,7 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>ZEND_WIN32;PHP_WIN32;ZTS;_CRT_SECURE_NO_WARNINGS;ZEND_WIN32_KEEP_INLINE;_WIN64;NDEBUG;_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ZEND_WIN32;PHP_WIN32;ZTS;ZEND_DEBUG=0;_CRT_SECURE_NO_WARNINGS;ZEND_WIN32_KEEP_INLINE;_WIN64;NDEBUG;_LIB</PreprocessorDefinitions>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
