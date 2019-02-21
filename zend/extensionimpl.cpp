@@ -232,7 +232,7 @@ ExtensionImpl::ExtensionImpl(Extension *data, const char *name, const char *vers
 
     // things that only need to be initialized
 #ifdef ZTS
-    _entry.globals_id_ptr = NULL;
+    _entry.globals_id_ptr = &phpcpp_globals_id;
 #else
     _entry.globals_ptr = NULL;
 #endif
