@@ -18,26 +18,6 @@
  */
 namespace Php {
 
-void FetchPhpResourceToCurrentThread()
-{
-#ifdef ZTS
-	ts_resource(compiler_globals_id);
-	ts_resource(executor_globals_id);
-	ts_resource(phpcpp_globals_id);
-#else
-
-#endif
-}
-
-void ReleasePhpResourceFromCurrentThread()
-{
-#ifdef ZTS
-	ts_free_thread();
-#else
-
-#endif
-}
-
 /**
  *  Check whether a class with a certain name exists
  *  @param  classname

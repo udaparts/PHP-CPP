@@ -50,8 +50,6 @@ extern PHPCPP_EXPORT    Value set_exception_handler(const std::function<Value(Pa
 extern PHPCPP_EXPORT    Value set_error_handler(const std::function<Value(Parameters &params)> &handler, Error error = Error::All);
 extern PHPCPP_EXPORT    Value error_reporting(Error error);
 extern PHPCPP_EXPORT    const char *sapi_name();
-extern PHPCPP_EXPORT void FetchPhpResourceToCurrentThread();
-extern PHPCPP_EXPORT void ReleasePhpResourceFromCurrentThread();
 
 /**
  *  Call a function in PHP
