@@ -893,7 +893,11 @@ Value Value::exec(int argc, Value *argv) const
 {
     // array of zvals to execute
 #ifdef PHP_WIN32
-	std::shared_ptr<zval> pzval(new zval[argc]);
+	std::shared_ptr<zval> pzval(new zval[argc], [](zval *p) {
+		if (p) {
+			delete[]p;
+		}
+	});
 	zval *params = pzval.get();
 #else
 	zval params[argc];
@@ -920,7 +924,11 @@ Value Value::exec(const char *name, int argc, Value *argv) const
 
     // array of zvals to execute
 #ifdef PHP_WIN32
-	std::shared_ptr<zval> pzval(new zval[argc]);
+	std::shared_ptr<zval> pzval(new zval[argc], [](zval *p) {
+		if (p) {
+			delete[]p;
+		}
+	});
 	zval *params = pzval.get();
 #else
 	zval params[argc];
@@ -942,12 +950,16 @@ Value Value::exec(const char *name, int argc, Value *argv) const
  */
 Value Value::exec(const char *name, int argc, Value *argv)
 {
-    // wrap the name in a Php::Value object to get a zval
-    Value method(name);
+	// wrap the name in a Php::Value object to get a zval
+	Value method(name);
 
-    // array of zvals to execute
+	// array of zvals to execute
 #ifdef PHP_WIN32
-	std::shared_ptr<zval> pzval(new zval[argc]);
+	std::shared_ptr<zval> pzval(new zval[argc], [](zval *p) {
+		if (p) {
+			delete[]p;
+		}
+	});
 	zval *params = pzval.get();
 #else
 	zval params[argc];
