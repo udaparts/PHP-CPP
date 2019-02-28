@@ -30,13 +30,38 @@
 // for debug
 #include <iostream>
 
-//#define ZTS
+#ifdef _MSC_VER
+
+#ifndef ZEND_WIN32
+#define ZEND_WIN32 1
+#endif
+
+#ifndef PHP_WIN32
+#define PHP_WIN32
+#endif
+
+#ifndef ZEND_WIN32_KEEP_INLINE
+#define ZEND_WIN32_KEEP_INLINE
+#endif
+
+#endif
+
+#ifdef NDEBUG
+#define ZEND_DEBUG 0
+#else
+#define ZEND_DEBUG 1
+#endif
+
+
+//#define ZTS 1
+
+
 //#define THREAD_T pthread_t
 //#define MUTEX_T pthread_mutex_t *
 
 /**
- *  PHP includes
- */
+*  PHP includes
+*/
 #include <php.h>
 #include <zend_exceptions.h>
 #include <zend_interfaces.h>

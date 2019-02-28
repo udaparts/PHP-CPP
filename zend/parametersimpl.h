@@ -28,7 +28,7 @@ public:
         // reserve plenty of space
         reserve(argc);
 
-#ifdef PHP_WIN32
+#ifdef ZEND_WIN32
 		std::shared_ptr<zval> pzval(new zval[argc], [](zval *p) {
 			if (p) {
 				delete[]p;

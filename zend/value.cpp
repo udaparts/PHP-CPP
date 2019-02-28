@@ -892,7 +892,7 @@ Value Value::call(const char *name)
 Value Value::exec(int argc, Value *argv) const
 {
     // array of zvals to execute
-#ifdef PHP_WIN32
+#ifdef ZEND_WIN32
 	std::shared_ptr<zval> pzval(new zval[argc], [](zval *p) {
 		if (p) {
 			delete[]p;
@@ -923,7 +923,7 @@ Value Value::exec(const char *name, int argc, Value *argv) const
     Value method(name);
 
     // array of zvals to execute
-#ifdef PHP_WIN32
+#ifdef ZEND_WIN32
 	std::shared_ptr<zval> pzval(new zval[argc], [](zval *p) {
 		if (p) {
 			delete[]p;
@@ -954,7 +954,7 @@ Value Value::exec(const char *name, int argc, Value *argv)
 	Value method(name);
 
 	// array of zvals to execute
-#ifdef PHP_WIN32
+#ifdef ZEND_WIN32
 	std::shared_ptr<zval> pzval(new zval[argc], [](zval *p) {
 		if (p) {
 			delete[]p;

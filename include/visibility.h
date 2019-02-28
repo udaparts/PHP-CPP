@@ -22,7 +22,11 @@
 		#ifdef __GNUC__
 			#define PHPCPP_EXPORT __attribute__ ((dllimport))
 		#else
-			#define PHPCPP_EXPORT
+			#ifdef USE_PHP_CPP
+				#define PHPCPP_EXPORT __declspec(dllimport)
+			#else
+				#define PHPCPP_EXPORT
+			#endif
 		#endif
 	#endif
 #else

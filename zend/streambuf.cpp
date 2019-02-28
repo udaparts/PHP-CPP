@@ -15,7 +15,7 @@
  */
 namespace Php {
 
-#ifdef PHP_WIN32
+#ifdef ZEND_WIN32
     /**
      *  Constructor
      *  @param  error
