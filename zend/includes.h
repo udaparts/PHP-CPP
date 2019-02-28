@@ -33,6 +33,21 @@
 
 #include "../include/visibility.h"
 
+#ifdef _MSC_VER
+
+#ifndef ZEND_WIN32
+#define ZEND_WIN32 1
+#endif
+
+#ifndef PHP_WIN32
+#define PHP_WIN32
+#endif
+
+#ifndef ZEND_WIN32_KEEP_INLINE
+#define ZEND_WIN32_KEEP_INLINE
+#endif
+
+#endif
 
 //#define THREAD_T pthread_t
 //#define MUTEX_T pthread_mutex_t *
