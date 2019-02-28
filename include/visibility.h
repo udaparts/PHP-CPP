@@ -32,3 +32,22 @@
 #else
 	#define PHPCPP_EXPORT __attribute__ ((visibility ("default")))
 #endif
+
+#ifdef _MSC_VER
+
+#ifndef ZEND_WIN32
+#define ZEND_WIN32 1
+#endif
+
+#ifndef PHP_WIN32
+#define PHP_WIN32
+#endif
+
+#ifndef ZEND_WIN32_KEEP_INLINE
+#define ZEND_WIN32_KEEP_INLINE
+#endif
+
+#endif
+
+
+ //#define ZTS 1

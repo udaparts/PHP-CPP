@@ -30,30 +30,8 @@
 // for debug
 #include <iostream>
 
-#ifdef _MSC_VER
 
-#ifndef ZEND_WIN32
-#define ZEND_WIN32 1
-#endif
-
-#ifndef PHP_WIN32
-#define PHP_WIN32
-#endif
-
-#ifndef ZEND_WIN32_KEEP_INLINE
-#define ZEND_WIN32_KEEP_INLINE
-#endif
-
-#endif
-
-#ifdef NDEBUG
-#define ZEND_DEBUG 0
-#else
-#define ZEND_DEBUG 1
-#endif
-
-
-//#define ZTS 1
+#include "../include/visibility.h"
 
 
 //#define THREAD_T pthread_t
@@ -84,7 +62,6 @@
 /**
  *  Include other files from this library
  */
-#include "../include/visibility.h"
 #include "../include/deprecated.h"
 #include "../include/noexcept.h"
 #include "../include/thread_local.h"
