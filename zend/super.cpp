@@ -32,7 +32,7 @@ Value Super::value()
     // call zend_is_auto_global to ensure that the just-in-time globals are loaded
     if (_name) {
         // make the variable an auto global
-        zend_is_auto_global(String{ _name });
+        zend_is_auto_global_str((char*)_name, ::strlen(_name));
 
         // reset because we only need to do this once
         _name = nullptr;

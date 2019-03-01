@@ -1305,10 +1305,10 @@ bool Value::boolValue() const
         case Type::Null:        return false;
         case Type::False:       return false;
         case Type::True:        return true;
-        case Type::Numeric:     return numericValue();
-        case Type::Float:       return floatValue();
-        case Type::String:      return size();
-        case Type::Array:       return size();
+		case Type::Numeric:     return numericValue() ? true : false;
+		case Type::Float:       return floatValue() ? true : false;
+		case Type::String:      return size() ? true : false;
+		case Type::Array:       return size() ? true : false;
         default:                return clone(Type::Bool).boolValue();
     }
 }
@@ -1543,7 +1543,7 @@ bool Value::contains(const char *key, int size) const
 
         // call the has_property() method (0 means: check whether property exists and is not NULL,
         // this is not really what we want, but the closest to the possible values of that parameter)
-        return has_property(_val, property._val, 0, nullptr);
+        return has_property(_val, property._val, 0, nullptr) ? true : false;
     }
     else
     {
