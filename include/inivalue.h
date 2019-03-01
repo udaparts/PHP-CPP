@@ -103,7 +103,7 @@ public:
      */
     bool boolValue() const
     {
-        return static_cast<bool>(numericValue());
+        return numericValue() ? true : false;
     }
 
     /**
