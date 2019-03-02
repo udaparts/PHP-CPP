@@ -25,7 +25,7 @@ public:
      *  @param  name            Function name
      *  @param  function        The native C function
      */
-	NativeFunction(const char *name, ZendCallback function, const Arguments &arguments = {}) : Callable(function, name, arguments), _type(9999) { _function.f0 = nullptr; }
+    NativeFunction(const char *name, ZendCallback function, const Arguments &arguments = {}) : Callable(function, name, arguments), _type(9999) { _function.f0 = nullptr; }
 
     /**
      *  Constructor

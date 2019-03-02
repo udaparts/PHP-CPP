@@ -40,12 +40,12 @@ public:
      *
      *  @param  string  The string to wrap
      */
-    String(zend_string *string) : _string(string)
+    String(zend_string *string) : _string(string) 
     {
-		if (_string) {
-			// add another reference to the string
-			zend_string_addref(_string);
-		}
+        if (_string) {
+            // add another reference to the string
+            zend_string_addref(_string);
+        }
     }
 
     /**
@@ -85,10 +85,10 @@ public:
      */
     String(const String &that) : _string(that._string)
     {
-		if (_string) {
-			// increment refcount
-			zend_string_addref(_string);
-		}
+        if (_string) {
+            // increment refcount
+            zend_string_addref(_string);
+        }
     }
 
     /**
@@ -109,9 +109,9 @@ public:
     {
         // release the reference, freeing the
         // string if we are the last referee
-		if (_string) {
-			zend_string_release(_string);
-		}
+        if (_string) {
+            zend_string_release(_string);
+        }
     }
 
     /**
@@ -121,8 +121,8 @@ public:
      */
     char *data()
     {
-		if (!_string)
-			return nullptr;
+        if (!_string)
+            return nullptr;
         return ZSTR_VAL(_string);
     }
 
@@ -133,8 +133,8 @@ public:
      */
     const char *data() const
     {
-		if (!_string)
-			return nullptr;
+        if (!_string)
+            return nullptr;
         return ZSTR_VAL(_string);
     }
 
@@ -145,8 +145,8 @@ public:
      */
     size_t size() const
     {
-		if (!_string)
-			return 0;
+        if (!_string)
+            return 0;
         return ZSTR_LEN(_string);
     }
 

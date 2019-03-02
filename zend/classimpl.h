@@ -122,9 +122,10 @@ public:
      *  @param  name            Class name
      *  @param  type            Class type
      */
-    ClassImpl(const char *name, ClassType type) : _name(name), _type(type) {
-		::memset(&_handlers, 0, sizeof(_handlers));
-	}
+    ClassImpl(const char *name, ClassType type) : _name(name), _type(type)
+    {
+        ::memset(&_handlers, 0, sizeof (_handlers));
+    }
 
     /**
      *  No copying or moving

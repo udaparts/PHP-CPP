@@ -24,8 +24,8 @@ IteratorImpl::IteratorImpl(zval *object, Iterator *iterator) : _userspace(iterat
     zend_iterator_init(&_iterator);
 
     // copy the object to the iterator, and set the callbacks
-	ZVAL_COPY(&_iterator.data, object);
-	_iterator.funcs = functions();
+    ZVAL_COPY(&_iterator.data, object);
+    _iterator.funcs = functions();
 }
 
 /**
@@ -37,7 +37,7 @@ IteratorImpl::~IteratorImpl()
     invalidate();
     
     // one reference less to the original object
-	zval_ptr_dtor(&_iterator.data);
+    zval_ptr_dtor(&_iterator.data);
 }
 
 /**

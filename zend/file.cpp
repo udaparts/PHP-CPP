@@ -28,9 +28,9 @@ namespace Php {
  */
 File::File(const char *name, size_t size)
 {
-	if (!name) {
-		size = 0;
-	}
+    if (!name) {
+        size = 0;
+    }
     // resolve the path
     _path = zend_resolve_path(name, (int)size);
 }
