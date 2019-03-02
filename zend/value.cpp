@@ -1306,7 +1306,7 @@ bool Value::boolValue() const
         case Type::False:       return false;
         case Type::True:        return true;
 		case Type::Numeric:     return numericValue() ? true : false;
-		case Type::Float:       return floatValue() ? true : false;
+		case Type::Float:       return (floatValue() != 0.0) ? true : false;
 		case Type::String:      return size() ? true : false;
 		case Type::Array:       return size() ? true : false;
         default:                return clone(Type::Bool).boolValue();

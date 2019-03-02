@@ -27,7 +27,7 @@ public:
      *  @param  flags           Access flags
      *  @param  args            Argument description
      */
-    Method(const char *name, ZendCallback callback, int flags, const Arguments &args) : Callable(callback, name, args), _flags(flags) {}
+    Method(const char *name, ZendCallback callback, int flags, const Arguments &args) : Callable(callback, name, args), _type(9999), _flags(flags) { _callback.m0 = nullptr; }
 
     /**
      *  Constructor 

@@ -78,7 +78,8 @@ public:
      *  @param  that
      */
     Callable(const Callable &that) :
-        _name(that._name),
+		_callback(that._callback),
+		_name(that._name),
         _return(that._return),
         _required(that._required),
         _argc(that._argc),
@@ -91,6 +92,7 @@ public:
      *  @param  that
      */
     Callable(Callable &&that) :
+		_callback(that._callback),
         _name(std::move(that._name)),
         _return(that._return),
         _required(that._required),
