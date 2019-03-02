@@ -42,8 +42,10 @@ public:
      */
     String(zend_string *string) : _string(string)
     {
-        // add another reference to the string
-        zend_string_addref(_string);
+		if (_string) {
+			// add another reference to the string
+			zend_string_addref(_string);
+		}
     }
 
     /**
@@ -58,7 +60,7 @@ public:
      *
      *  @param  string  The string to wrap
      */
-    String(const char *string) : _string(zend_string_init(string, std::strlen(string), 1)) {}
+    String(const char *string) : _string(zend_string_init(string, string ? std::strlen(string) : 0, 1)) {}
 
     /**
      *  Constructor
@@ -66,7 +68,7 @@ public:
      *  @param  string  The string to wrap
      *  @param  size    Number of bytes in the string
      */
-    String(const char *string, size_t size) : _string(zend_string_init(string, size, 1)) {}
+    String(const char *string, size_t size) : _string(zend_string_init(string, string ? size : 0, 1)) {}
 
     /**
      *  Constructor
@@ -83,8 +85,10 @@ public:
      */
     String(const String &that) : _string(that._string)
     {
-        // increment refcount
-        zend_string_addref(_string);
+		if (_string) {
+			// increment refcount
+			zend_string_addref(_string);
+		}
     }
 
     /**
@@ -105,7 +109,9 @@ public:
     {
         // release the reference, freeing the
         // string if we are the last referee
-        if (_string) zend_string_release(_string);
+		if (_string) {
+			zend_string_release(_string);
+		}
     }
 
     /**
@@ -115,6 +121,8 @@ public:
      */
     char *data()
     {
+		if (!_string)
+			return nullptr;
         return ZSTR_VAL(_string);
     }
 
@@ -125,6 +133,8 @@ public:
      */
     const char *data() const
     {
+		if (!_string)
+			return nullptr;
         return ZSTR_VAL(_string);
     }
 
@@ -135,6 +145,8 @@ public:
      */
     size_t size() const
     {
+		if (!_string)
+			return 0;
         return ZSTR_LEN(_string);
     }
 
