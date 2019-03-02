@@ -33,7 +33,7 @@ Global::Global(Global &&global) _NOEXCEPT :
  */
 Global::Global(const char *name) :
     Value(),
-    _name(zend_string_init(name, ::strlen(name), 1)),
+    _name(zend_string_init(name, name ? ::strlen(name) : 0, 1)),
     _exists(false) {}
 
 /**
@@ -52,7 +52,7 @@ Global::Global(const std::string &name) :
  */
 Global::Global(const char *name, struct _zval_struct *val) :
     Value(val, true),
-    _name(zend_string_init(name, ::strlen(name), 1)),
+    _name(zend_string_init(name, name ? ::strlen(name) : 0, 1)),
     _exists(true) {}
 
 /**

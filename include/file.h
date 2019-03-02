@@ -40,7 +40,7 @@ public:
      *
      *  @param  name        the filename
      */
-    File(const char *name) : File(name, ::strlen(name)) {}
+    File(const char *name) : File(name, name ? ::strlen(name) : 0) {}
 
     /**
      *  Alternative constructor with a string object
