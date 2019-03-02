@@ -56,6 +56,7 @@ public:
      */
     Property(const getter_callback_0 &getter) : _gtype(0)
     {
+		_setter.s0 = nullptr;
         _getter.g0 = getter;
     }
 
@@ -66,6 +67,7 @@ public:
      */
     Property(const getter_callback_1 &getter) : _gtype(1)
     {
+		_setter.s0 = nullptr;
         _getter.g1 = getter;
     }
 
