@@ -12,25 +12,25 @@
  */
 
 #if defined(_MSC_VER) || defined(__CYGWIN__)
-	#ifdef BUILDING_PHPCPP
-		#ifdef __GNUC__
-			#define PHPCPP_EXPORT __attribute__ ((dllexport))
-		#else
-			#define PHPCPP_EXPORT __declspec(dllexport) // Note: actually gcc seems to also supports this syntax.
-		#endif
-	#else
-		#ifdef __GNUC__
-			#define PHPCPP_EXPORT __attribute__ ((dllimport))
-		#else
-			#ifdef USE_PHP_CPP
-				#define PHPCPP_EXPORT __declspec(dllimport)
-			#else
-				#define PHPCPP_EXPORT
-			#endif
-		#endif
-	#endif
+    #ifdef BUILDING_PHPCPP
+        #ifdef __GNUC__
+            #define PHPCPP_EXPORT __attribute__ ((dllexport))
+        #else
+            #define PHPCPP_EXPORT __declspec(dllexport) // Note: actually gcc seems to also supports this syntax.
+        #endif
+    #else
+        #ifdef __GNUC__
+            #define PHPCPP_EXPORT __attribute__ ((dllimport))
+        #else
+            #ifdef USE_PHP_CPP
+                #define PHPCPP_EXPORT __declspec(dllimport)
+            #else
+                #define PHPCPP_EXPORT
+            #endif
+        #endif
+    #endif
 #else
-	#define PHPCPP_EXPORT __attribute__ ((visibility ("default")))
+    #define PHPCPP_EXPORT __attribute__ ((visibility ("default")))
 #endif
 
 //#define ZTS 1
